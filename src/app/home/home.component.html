@@ -1,0 +1,27 @@
+<div class="container color-dark">
+  <div class="col">
+    <p class="lg">Angular Session Registration</p>
+  </div>
+  <div class="col">
+    <p class="lg"> Registration Count: ({{registerCount }})</p>
+  </div>
+</div>
+<div class="container color-light" [@RegisteredName]="RegisteredName.length">
+  <div class="col">
+    <p class="sm">
+      To Start the session, register your name!!!
+    </p>
+
+    <form>
+      <input type="text" id="Txt_NametoRegister" name="Registration" placeholder="Enter Name" class="txt" [(ngModel)]="TwoWayBindingText">
+      <br>
+      <!-- <span>{{TwoWayBindingText}}</span> -->
+      <input type="submit" name="Register" class="btn" [value]="btnValue" (click)="SaveRegistration()">
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let value of RegisteredName; let i= index" (click)="RemoveRegistration(i)">
+      {{ value }}
+    </p>
+  </div>
+</div>
